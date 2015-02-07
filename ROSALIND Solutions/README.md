@@ -1,4 +1,6 @@
+---
 # Niema's ROSALIND Solutions #
+---
 
 ### What is ROSALIND?
 Rosalind is a platform for learning bioinformatics and programming through problem solving. [Take a tour](http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track) to get the hang of how Rosalind works.
