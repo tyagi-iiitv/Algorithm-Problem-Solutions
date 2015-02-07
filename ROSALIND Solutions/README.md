@@ -13,3 +13,12 @@ My ROSALIND Profile: [http://rosalind.info/users/niemamoshiri/](http://rosalind.
 Description (from ROSALIND website):
 
 Rosalind is a platform for learning bioinformatics and programming through problem solving. [Take a tour](http://rosalind.info/problems/list-view/?location=bioinformatics-textbook-track) to get the hang of how Rosalind works.
+
+### Folder Structure
+---
+The ROSALIND solutions are organized into five folders, mirroring the ROSALIND website. The categories are (in alphabetical order):
+* Algorithmic Heights
+* Bioinformatics Armory
+* Bioinformatics Stronghold
+* Bioinformatics Textbook Track
+* Python Village
