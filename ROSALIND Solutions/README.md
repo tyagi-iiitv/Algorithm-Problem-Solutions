@@ -28,3 +28,7 @@ In each folder (with the exception of "Python Village"), each problem has its ow
  * __##__ = How many I solved (e.g. 10 would mean that this is my 10th problem solved)
  * __ABCD__ = ROSALIND's problem ID (each problem on ROSALIND has a unique 3-4 character ID)
  * __???__ = Official name of the problem
+
+Each problem's folder contains 2 files:
+* .java or .py file (the problem's solution)
+* README.jpg (the ROSALIND instructions for the problem)
