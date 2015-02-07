@@ -25,3 +25,6 @@ The ROSALIND solutions are organized into five folders, mirroring the ROSALIND w
 
 In each folder (with the exception of "Python Village"), each problem has its own folder, named as follows:
 * ## - ABCD - ???
+** ## = How many I solved (e.g. 10 would mean that this is my 10th problem solved)
+** ABCD = ROSALIND's problem ID (each problem on ROSALIND has a unique 3-4 character ID)
+** ??? = Official name of the problem
