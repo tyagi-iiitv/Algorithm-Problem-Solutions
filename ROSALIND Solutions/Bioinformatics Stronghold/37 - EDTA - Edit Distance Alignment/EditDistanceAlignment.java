@@ -1,0 +1,78 @@
+public class EditDistanceAlignment {
+  public static void main( String[] args ) {
+    String s = "DPAVSDTRDEPMCRKRPFCKKTHNFSCWVVQVMDQQLPMDMRAPTDRQQGKSSKPFGYNHRRDSQRVFTCSMGILGDCNKEQHNTKKICPAVWCSRYMWAPIHGTNNWEKMSDSQCLSFWEDMEPSMHDNMCVIAPCRNINLRSSKTLEWGYGPQWLIIRCQRQQMQLRRVREVQCPTLPRPAFSHHEYMIAPWHHDGEKRCVVCKFEPNLGCGLSKTEWPLDDRIWNRCQKSQTERPYRMGKTWCTKIKVDKYHQEWGTTADLMMRLTDKINEWNMYHIMEITIRQCPPLHGGGDMKVETWRWNMMWKLMPYDKPNQDFPFEFNNYTCGKMTVCLEWRMLLASLLRRIYICYYKKVIVPLCKQMSGVPRHPNDRWKYRTFNWTEPWTMQPTGPNTIWFQRHTDYPLGFYNYQFKILIIDYLMCSRNEVAHRQECCRLWIDQAVCMTSSKYPSMTLDYIAEIIMNADMTLNFRMMSAKRKYVLVSMFLHMCATWNSPPPTKWSFIVRSKILVCDNHCTPDRHSKRISNMGADDHFEYVYYYDMEPFPAMSGKNFVARLQKQEEKVYVDRCTNILSDADHQSWTMHGYGVYVADWTFAAAPDSIHQVDPYHCHKKKNLEAVVENWAWMPFYLFNGMHYWSTPGCWSWAWCFLWPDSNINYCQCNLRFSNRHLVGCAENFYMDAWMVISWPISKVCGFLHSTTKWMDPAADMPWAIPMVYKAENWPPDMVNYLNEFQFCTTIETYIYRTWCAWMLFADTSIYYCCGSPCERQTNHLFCVHGFTWKDWLCVCAIQGHCAFGIRLKANRAYFEMLWRNMRKYGHASLIWKNNVNCFHHPGYMTIHWYMNRRAMCFPHMI";
+    String t = "DPFRMFVSDTRDEPMDKRDDANDGKRPKCKKTHDFIVGSDNMCWLPMDMSAPLDRQQGKGSKRFQWYNHFLMNWRLECHHLSVRVFTCYAALQFPRMGIQHDQHATRGKEQHNVWCSRYMWRCNRHCSAPVPVKMGTNNWEKMSRWEDMEPSMHDNMCVIAPCRFINLPFWWLWPMCQARSYTLEYGPQPWKDLIIRCQRLLRRVREVQCHTLPRPAFSHHEYAIQPWHHDGEKRCVVCKFEPNLGCPTWELMDELSKTEYPLDDRIWNRCQKSQTERPYRRGKAAWCTKIKGTTHWLMMRLTDKINEWNMYHIMEPPLHGPVTDHVVVGDMKVETWVWNMMWKLMPYQIIGPGVWKVQSNYNNDFRNNYTCLEWRMLLACYLCKQSSGVPYHPNDRWKYRTFNWFKNRCKQMETMQPTGPFHMIWFQRDYPLGFYNYEFEFQNILIVMHRDECCRLWIDQAVCMTSSKYNSITWDYIDMTFNFCMMSAKRKYVLVRITWNSPPFITRSKILVYGKLDCCALKNNFNHCTPDRHISNMGADDHFEYELFWGSNYHTMEPFPAMSMKNFQGEKVYVDRCTNILSDADHQSFTMHGVYVPDQICIHQVDPYEAVMNWFYLFNGMHYLPPWVMFNSTPGCWSWANDQIPNQFMCFLWGDQCNLRGSNRGDYWCFSLDGCATKFYVDAWGVISWPISKVCGFLHSLTKWMSYPAADMPWVQETQSKRVDYTDGLPMVYKAENWGDKWPDMVHYLNEFQCRETYIYRKFIPWCAWIRICMARSVPWRFSIYYCCGSCCQCEFVMDMGYCHQAQFNHLFCTCHGFTWKCKKADHIQGHCARLKANRDYFEMLWRNCRKYGHEWSLIWINNVNCMHHPGQMTTHWYMNRRQMCFTHTI";
+    String[] out = editDistanceAlignment(s,t);
+    System.out.println(out[0]);
+    System.out.println(out[1]);
+    System.out.println(out[2]);
+  }
+  
+  public static String[] editDistanceAlignment( String s, String t ) {
+    int cost = 0;
+    int leftCell = -1;
+    int topCell = -1;
+    int cornerCell = -1;
+    int m = s.length()+1;
+    int n = t.length()+1;
+    
+    int[][] T = new int[m][n];
+    int[][] backtrack = new int[m][n];
+    for(int i = 0; i < m; ++i) {
+      for(int j = 0; j < n; ++j) {
+        T[i][j] = -1;
+      }
+    }
+    
+    for(int i = 0; i < m; ++i) {
+      T[i][0] = i;
+    }
+    for(int j = 0; j < n; ++j) {
+      T[0][j] = j;
+    }
+    
+    for(int i = 1; i < m; ++i) {
+      for(int j = 1; j < n; ++j) {
+        leftCell = T[i][j-1] + 1;
+        topCell = T[i-1][j] + 1;
+        cornerCell = T[i-1][j-1];
+        if(s.charAt(i-1) != t.charAt(j-1)) {
+          ++cornerCell;
+        }
+        
+        T[i][j] = leftCell;
+        backtrack[i][j] = 1;
+        if(topCell < T[i][j]) {
+          T[i][j] = topCell;
+          backtrack[i][j] = 2;
+        }
+        if(cornerCell < T[i][j]) {
+          T[i][j] = cornerCell;
+          backtrack[i][j] = 3;
+        }
+      }
+    }
+    
+    String[] out = {""+T[m-1][n-1],"",""};
+    int i = m-1;
+    int j = n-1;
+    while(true) {
+      if(backtrack[i][j] == 1) {
+        out[1] = "-" + out[1];
+        out[2] = t.charAt(j-- - 1) + out[2];
+      }
+      else if(backtrack[i][j] == 2) {
+        out[1] = s.charAt(i-- - 1) + out[1];
+        out[2] = "-" + out[2];
+      }
+      else if(backtrack[i][j] == 3) {
+        out[1] = s.charAt(i-- - 1) + out[1];
+        out[2] = t.charAt(j-- - 1) + out[2];
+      }
+      else {
+        break;
+      }
+    }
+    return out;
+  }
+}

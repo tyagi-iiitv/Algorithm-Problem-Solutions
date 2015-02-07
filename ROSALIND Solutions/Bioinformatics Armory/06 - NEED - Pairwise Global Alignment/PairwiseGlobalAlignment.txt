@@ -1,0 +1,10 @@
+1)  Go to EMBOSS's Needle tool: http://www.ebi.ac.uk/Tools/psa/emboss_needle/nucleotide.html
+2)  MATRIX: "DNAfull"
+3)  GAP OPEN: 10
+4)  GAP EXTEND: 1.0
+5)  OUTPUT FORMAT: "pair"
+6)  END GAP PENALTY: true
+7)  END GAP OPEN: 10
+8)  END GAP EXTEND: 1.0
+9)  Click "Submit"
+10) Score is next to "Score:"

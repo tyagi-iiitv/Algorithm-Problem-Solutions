@@ -1,0 +1,19 @@
+minimum_skew( genome ):
+    inds = empty list of integers
+    skews = skew(genome)
+    min_skew = min(skews)
+    for i from 0 to |skews|-1:
+        if skews[i] == min_skew:
+            Add i to inds
+    return inds
+
+skew( genome ):
+    skews = array of integers of length |genome|+1
+    for i from 0 to |genome|-1:
+        if genome[i] == 'C':
+            skews[i+1] = skews[i] - 1
+        else if genome[i] == 'G':
+            skews[i+1] = skews[i] + 1
+        else:
+            skews[i+1] = skews[i]
+    return skews

@@ -1,0 +1,13 @@
+approximate_pattern_matching( pattern, text, d ):
+    pos = empty list of integers
+    for i from 0 to (|text|-|pattern|):
+        if hamming_distance( pattern, text[i ... (i+|pattern|)] ) <= d:
+            Add i to pos
+    return pos
+
+hamming_distance( p, q ):
+    mismatch = 0
+    for i from 0 to |p|-1:
+        if p[i] != q[i]:
+            mismatch = mismatch + 1
+    return mismatch

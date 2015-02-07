@@ -1,0 +1,6 @@
+1) Go to MEME site: http://meme.nbcr.net/meme/cgi-bin/meme.cgi
+2) Enter email address (and re-enter)
+3) Upload dataset
+4) Click "Start search"
+5) Click the link next to "You can view your job results at:"
+6) Solution is next to "Regular Expression"

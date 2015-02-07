@@ -1,0 +1,44 @@
+import java.math.*;
+public class mRNAFromProtein {
+  public static void main( String[] args ) {
+    String protein = "MWCSWKQRCGTVCDWSRQVRICDRGWDMSQHVVKFHCNTNLQYHIYLVWMTQWHTEGELAKNSKTPMIDEKNYGATGQFNKFVVERVTCVEQANSQEMGKMSHYYKRKKPQKKLSLSCQSSYDSMANDECREESHEKDIICRPYINSSGDKVVKIRSQGHRKIPAHSEKWMNDYPPSLRVCQWYCIMSPFMCPAWKVPKPWQPFSFQCKPKQKYHFYCHPVFYKGWFRHKEPDWPMILICWDVTMHHPYKFMLTQNNYFRGQPAEWNRVGATCTSHTLQKPWKYMDNPPKYWMIGGKHAEWGTNGFVLHLWCMSADREKQEVDQFHDGMGCTACEARNCWLACGQARKSRSVKVVVMGARDCPQGQDNRGIWFNLTWDRMNGQCAEPHSFLAPDSDTGGKMSWPSACALKPYWERMCKNGAKANGRIRKSVMWMCSCAPKNLVHDFPEYERFKVSKSCPPRMGQSSLFQYSINFWYSIQDGPFPFMEPLFNPAIIDVKYDSPHMTGFNWYHAHCVLRAWASQHDFGQCQPMYMYTQTCSTTLWQVPMAQCTMDMIDRMKRNRIYCMSTHQCSEPWILVGSCFAKPATIKDHSSQVKYAQPDAGQCWKDIFLFGYLLPLLRVEDIFRKGYRKSTALMENKLEYVKSYPTWSSIPRCGHPYNGLSVLYEHAVQIRYHLQTAWIVFVIYMTMDFSMMDAPHVIQVLDFEDNKVIIVMFTNAFQPWSDTSFWPRWYHYQRAQQTGTWGQHQKWMDYCAWNNAIFKNDPVQHNKSRTRFPNKWEPYMPMYTVPSLQICFSGQETTPKTVGAFEMLLSYTYHMTHPTCLEAQRHCGEKSHPILAWMEMPEVHNWRMRFHKWQEFGIHWMMDITFNHCFPKHVITCFQQVEVMGIGYAKFQVLPPYLDQQIRVYGFSSMWWKDGMWMQPMCRIHKREVALWKQKWHEDVDYIDFQGQFRPGDMVSKELGPCARYWLHSDFIDRHMCRYEICSTPQEKSVLLNEGEST";
+    System.out.println(possmRNAmod1000000(protein));
+  }
+  
+  public static int possmRNAmod1000000( String protein ) {
+    BigInteger out = BigInteger.ONE;
+    for(int i = 0; i < protein.length(); ++i) {
+      char c = protein.charAt(i);
+      out = out.multiply(new BigInteger(""+possCodons(c)));
+    }
+    out = out.multiply(new BigInteger("3"));
+    out = out.mod(new BigInteger("1000000"));
+    return out.intValue();
+  }
+  
+  public static int possCodons( char aa ) {
+    switch(aa) {
+      case 'A': return 4;
+      case 'R': return 6;
+      case 'N': return 2;
+      case 'D': return 2;
+      case 'C': return 2;
+      case 'Q': return 2;
+      case 'E': return 2;
+      case 'G': return 4;
+      case 'H': return 2;
+      case 'I': return 3;
+      case 'L': return 6;
+      case 'K': return 2;
+      case 'M': return 1;
+      case 'F': return 2;
+      case 'P': return 4;
+      case 'S': return 6;
+      case 'T': return 4;
+      case 'W': return 1;
+      case 'Y': return 2;
+      case 'V': return 4;
+      default:  return 1;
+    }
+  }
+}

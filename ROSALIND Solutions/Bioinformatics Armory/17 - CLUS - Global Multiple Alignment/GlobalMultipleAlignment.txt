@@ -1,0 +1,4 @@
+1) Go to ClustalW (http://www.ebi.ac.uk/Tools/msa/clustalw2/)
+2) Enter FASTA (either paste or upload)
+3) Click "Submit"
+4) Pick the one that looks the least like the others

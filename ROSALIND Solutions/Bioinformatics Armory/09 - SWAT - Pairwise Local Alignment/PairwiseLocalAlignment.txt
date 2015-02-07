@@ -1,0 +1,7 @@
+1) Go to EMBOSS's Water tool: http://www.ebi.ac.uk/Tools/psa/emboss_water/
+2) MATRIX: BLOSUM62
+3) GAP OPEN: 10
+4) GAP EXTEND: 1.0
+5) OUTPUT FORMAT: "pair"
+6) Click "Submit"
+7) Score is next to "Score:"
