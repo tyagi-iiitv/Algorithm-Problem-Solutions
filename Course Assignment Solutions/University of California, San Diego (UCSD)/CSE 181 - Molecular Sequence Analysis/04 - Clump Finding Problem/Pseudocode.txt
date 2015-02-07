@@ -1,0 +1,16 @@
+clump_find( genome, k, L, t ):
+    out = empty HashSet of Strings
+    for window_start from 0 to (|genome|-L):
+        window = genome[window_start ... (window_start+L)]
+        for i from 0 to (|window|-k):
+            kmer = window[i ... (i+k)]
+            if pattern_count(window,kmer) >= t:
+                Add kmer to out
+    return out
+
+pattern_count( text, pattern ):
+    count = 0
+    for i from 0 to (|text| - |pattern|):
+        if text[i ... (i+|pattern|)] == pattern:
+            count = count + 1
+    return count

@@ -1,0 +1,8 @@
+reverse_complement( dna ):
+    out = empty string
+    for i from |dna|-1 to 0:
+        if dna[i] == 'A': Append 'T' to the end of out
+        else if dna[i] == 'T': Append 'A' to the end of out
+        else if dna[i] == 'C': Append 'G' to the end of out
+        else if dna[i] == 'G': Append 'C' to the end of out
+    return out

@@ -1,0 +1,21 @@
+frequent_words( text, k ):
+    set = empty list of strings
+    count = array of integers of size (|text| - k + 1)
+    patterns = array of strings of size |count|
+    max_count = 0
+    for i from 0 to |count|-1:
+        patterns[i] = text[i ... (i+k)]
+        count[i] = pattern_count(text,patterns[i])
+        if count[i] > max_count:
+            max_count = count
+    for i from 0 to |count|-1:
+        if count[i] == max_count AND set doesn't already contain patterns[i]:
+            Add patterns[i] to set
+    return set
+
+pattern_count( text, pattern ):
+    count = 0
+    for i from 0 to (|text| - |pattern|):
+        if text[i ... (i+|pattern|)] == pattern:
+            count = count + 1
+    return count

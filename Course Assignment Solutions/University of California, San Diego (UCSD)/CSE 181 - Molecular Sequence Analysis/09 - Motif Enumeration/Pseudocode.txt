@@ -1,0 +1,48 @@
+motifEnumeration( seqs, k, d ):
+    temp = empty list of Strings
+    patternPrimes = empty list of Strings
+    for i from 0 to (|seqs|-1):
+        curr = seqs[i]
+        for start from 0 to (|curr|-k):
+            pattern = curr[start ... (start+k)]
+            list = getKmerVariants(pattern,d)
+            for j from 0 to (|list|-1):
+                if patternPrimes doesn't contain list[j]:
+                    Add list[j] to patternPrimes
+    for i from 0 to (|patternPrimes|-1):
+        curr = patternPrimes[i]
+        inAll = true
+        for j from 0 to (|seqs|-1):
+            if approximatePatternCount(seqs[j],curr,d) == 0:
+                inAll = false
+                break
+        if inAll is true:
+            Add curr to temp
+    patterns = empty list of Strings
+    for i from 0 to (|temp|-1):
+        if patterns doesn't contain temp[i]:
+            Add temp[i] to patterns
+    Sort patterns
+    return patterns
+
+getKmerVariants( kmer, d ):
+    out = list of all 4^k possible kmers
+    for i from 0 to (|out|-1):
+        if hammingDistance(kmer,out[i]) > d:
+            remove out[i] from out
+            i = i - 1
+    return out
+
+approximatePatternCount( text, pattern, d ):
+    count = 0
+    for i from 0 to (|text| - |pattern|):
+        if hammingDistance(pattern,text[i ... (i+|pattern|)]) <= d:
+            count = count + 1
+    return count
+
+hamming_distance( p, q ):
+    mismatch = 0
+    for i from 0 to |p|-1:
+        if p[i] != q[i]:
+            mismatch = mismatch + 1
+    return mismatch
