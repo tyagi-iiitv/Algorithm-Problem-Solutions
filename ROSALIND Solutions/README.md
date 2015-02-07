@@ -22,3 +22,6 @@ The ROSALIND solutions are organized into five folders, mirroring the ROSALIND w
 * Bioinformatics Stronghold
 * Bioinformatics Textbook Track
 * Python Village
+
+In each folder (with the exception of "Python Village"), each problem has its own folder, named as follows:
+* ## - ABCD - ???
