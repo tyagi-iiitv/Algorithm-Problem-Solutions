@@ -11,7 +11,7 @@ import java.util.*;
 public class BurrowsWheelerTransformConstructionProblem {
     public static void main( String[] args ) {
         // DEFINE "text"!!!
-        String text = "$";
+        String text = "";
         // DEFINE "text"!!!
         System.out.println(burrowsWheelerTransform(text));
     }
