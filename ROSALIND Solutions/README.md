@@ -18,10 +18,10 @@ Rosalind is a platform for learning bioinformatics and programming through probl
 ---
 The ROSALIND solutions are organized into five folders, mirroring the ROSALIND website. The categories are (in alphabetical order):
 * Algorithmic Heights
-* Bioinformatics Armory
+* Bioinformatics Armory (COMPLETED)
 * Bioinformatics Stronghold
-* Bioinformatics Textbook Track
-* Python Village
+* Bioinformatics Textbook Track (COMPLETED)
+* Python Village (COMPLETED)
 
 In each folder (with the exception of "Python Village"), each problem has its own folder, named as follows:
 * __##__ - __ABCD__ - __???__
