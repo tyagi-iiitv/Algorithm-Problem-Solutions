@@ -1,0 +1,56 @@
+PROGRAM DESCRIPTION
+    The program (ResizableBall) is an applet that, on a canvas specified, draws
+ a ball that grows to two times its original diameter, then shrinks back to its
+ original diameter, then grows, etc. The canvas starts blank, with just axes on
+ it (x and y). When the canvas is clicked on, a ResizableBall is drawn centered
+ at the click. Depending on the quadrant that the ResizableBall is centered in,
+ it is a defined color. When clicked on, the axes can be moved. If this changes
+ the quadrant that a ball is now in, its color is updated to be correct. If the
+ user clicks Stop, all balls stop resizing. If the user clicks Start, all balls
+ start resizing. If the user clicks Clear All, all balls are cleared. If a ball
+ is pressed on and dragged, it will move.
+
+  USAGE: appletviewer ResizableBallController.html
+         (or just view ResizableBallController.html in a web browser)
+
+  On Start:   Show axes (one horizontal and one vertical line)
+
+  On Click:   Draw a ResizableBalle centered at the mouse click
+              If one or both axes is clicked on, consider it "grabbed"
+              If a ball is clicked on, consider it "grabbed"
+              If Start is clicked, all balls start resizing
+              If Stop is clicked, all balls stop resizing
+              If Clear All is clicked, all balls are cleared
+
+  On Drag:    If axis/axes is grabbed and mouse is still pressed, move axis/
+                axes with the mouse
+              If a ball is grabbed and mouse is still pressed, move ball with
+                the mouse
+
+  On Release: If axis/axes/ball was grabbed, now consider it released
+
+SHORT RESPONSE QUESTIONS
+ 1. To open a file in vim from the command line and be taken to a certain line:
+      vim +PAGENUMBER FILENAME
+    For example: vim +20 Foo.java
+      opens the file Foo.java in vim to line 20.
+
+ 2. The "call stack" (or "run-time stack") holds the local variables and formal
+    parameters with each method invocation.
+
+ 3. In a Java interface, you can only declare method signatures and variables.
+    Method signature declarations must be public and abstract, and variables
+    must be public, final, and static.
+      public abstract int Foo(int bar); // Example Method Signature Declaration
+      public final static int foo = 5;  // Example Variable Declaration
+
+ 4. To disable special syntax coloring in vim, use this command (after ESC):
+      :syntax off
+    To enable special syntax coloring in vim, use this command (after ESC):
+      :syntax on
+
+ 5. To open the help file while already in vim, use this command (after ESC):
+      :help
+
+ 6. To jump to a subject, position the cursor on the tag (e.g. |bars|) and hit
+      CTRL-]

@@ -1,0 +1,107 @@
+PROGRAM DESCRIPTION
+    This program (Critters) is a "Critter Simulator" type program. We have made
+ 4 different types of critters, which will be described lower. Clicking "Start"
+ starts the simulation (the critters move) and clicking "Stop" stops it (all of
+ them stop moving). Clicking "Clear" clears all critters. The user can click on
+ the type of critter that will be created when the user clicks on the canvas.
+
+  CRITTERS:
+     Chaser:   The "Chaser" chases the nearest critter. If the nearest is a
+               fellow Chaser, then the Chaser chases the next closest
+
+     Runner:   The "Runner" runs away from the nearest critter
+
+     Random:   The "Random" jumps around a random distance between -10 & 10
+               pixels
+
+     Imitator: The "Imitator" imitates the nearest critter (read the above)
+
+  USAGE: appletviewer CrittersController.html
+         (or just view CrittersController.html in a web browser)
+
+  On Start:   Show the instructions (labels) and all of the buttons
+
+  On Click:   If "Start" is clicked, the applet goes into Start mode (any
+                critters, if any, will start moving)
+
+              If "Stop" is clicked, the applet goes into Stop mode (any
+                critters, if any, will stop moving)
+
+              If "Clear" is clicked, any existing critters are removed from
+                the canvas
+
+              If "Chaser" is clicked, next canvas click will create a Chaser
+
+              If "Runner" is clicked, next canvas click will create a Runner
+
+              If "Random" is clicked, next canvas click will create a Runner
+
+              If "Imitator" is clicked, next canvas click will create an
+                Imitator
+
+              If canvas is clicked, the selected critter will be created. If
+                no critter is selected, nothing happens
+
+
+SHORT RESPONSE QUESTIONS
+ 1. Instead of having all of the methods in a single Java file, instead create
+    one Java file called something like "ShapeDrawer.java" and have that be the
+    controller (have it just create the canvas and handle user events). Then,
+    create a separate Java file for each object type (RedCircle.java,
+    BlueCircle.java, etc). Each of these Java files will have a constructor to
+    create that type of object based on user-passed parameters (e.g. a location
+    based on a user mouse click). To make it even better, the student can make
+    an interface called "ColoredShape.java" or something, with potentially
+    useful methods like getColor(), setColor(Color color), getLoc(),
+    move(double dx, double dy), etc for the sake of polymorphism, making
+    controlling the objects easier.
+
+ 2. 1) Interfaces are inherited by Inheritance of Interface (implements), while
+       Abstract Classes are inherited by Inheritance of Implementation
+       (extends).
+
+    2) A class can implement many interfaces, but it can only extend a single
+       abstract class.
+
+    3) Interfaces can only have static final constants, while abstract classes
+       can have instance and static constants.
+
+    4) Interfaces set what a class can do, while abstract classes set what a
+       class is. E.g. A "Car" class and a "SodaCan" class can both implement
+       the same "Recyclable" interface, but "Car" would most likely extend an
+       "Automobile" abstract class, while "SodaCan" would most likely extend a
+       "LiquidContainer" abstract class.
+
+    5) If you make a change (e.g. add a new method) to an interface, you have
+       to go through every piece of code that implements that interface and
+       update it, while if you make a change to an abstract class, you can
+       specify a default implementation of it and only make changes when you
+       want/need (all other code will still work).
+
+    6) An interface is actually NOT a class at all.
+
+ 3. 1) Both can define various methods/constants that hold useful to classes
+       that implement/extend them.
+
+    2) Both are used to at one time define and categorize classes that are
+       similar.
+
+    3) If a reference is created as the interface type, it can reference any
+       class that implements that interface. Likewise, if a reference is
+       created as an abstract class type, it can reference any class that
+       extends that abstract class. For example, if we make a new reference
+       of interface type AnimalCard (AnimalCard ref;), and we then have Dog,
+       Cat, Lion, etc that all implement AnimalCard, we can at any point do
+       ref = Dog, ref = Cat, ref = Lion, etc. Likewise, if we make a new
+       reference of abstract class type Fubar (Fubar ref;), and we have Foo and
+       Bar that both extend Fubar, we can at any point do ref = Foo or
+       ref = Bar.
+
+ 4. To run gvim through the command line and open all Java source code files in
+    the current directory, each in its own tab, use this command:
+      gvim -p *.java
+
+ 5. To create a new directory called fooDir inside the current directory, and
+    also create another new directory called barDir inside fooDir using a 
+    single mkdir command, use this command:
+      mkdir -p fooDir/barDir
