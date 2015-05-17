@@ -40,18 +40,6 @@ public class EulerianPathProblem {
             }
         }
         
-        // Find sink node
-        int sinkNode = -1;
-        for(int t = 0; t < targets.size(); ++t) {
-            if(!sources.contains(targets.get(t))) {
-                sinkNode = targets.get(t);
-            }
-        }
-        if(sinkNode == -1) {
-            System.err.println("NO SINK NODE!");
-            System.exit(-1);
-        }
-        
         // Find numIn and numOut
         int[] numIn = new int[largest+1];
         int[] numOut = new int[largest+1];
@@ -65,10 +53,14 @@ public class EulerianPathProblem {
                 ++numIn[currDest];
             }
         }
+        int sinkNode = -1;
         int sinkDest = -1;
         for(int i = 0; i < sources.size(); ++i) {
-            if(numOut[i] > numIn[i]) {
+            if(numOut[i] == numIn[i] + 1) {
                 sinkDest = i;
+            }
+            else if(numOut[i] == numIn[i] - 1) {
+                sinkNode = i;
             }
         }
         
