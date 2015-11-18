@@ -1,6 +1,0 @@
-pattern_match( pattern, genome ):
-    pos = empty list of integers
-    for i from 0 to (|genome|-|pattern|):
-        if pattern == genome[i ... i+|pattern|]:
-            Add i to pos
-    return pos
