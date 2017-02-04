@@ -1,4 +1,4 @@
-# Niema's ROSALIND Solutions #
+# Bioinformatics Contest 2017 (Bioinformatics Institute) #
 
 ### Description
 ---
